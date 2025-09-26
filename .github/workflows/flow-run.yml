@@ -23,7 +23,7 @@ jobs:
 
       # Run a test flow and export JUnit results
       - name: Run DevTools Flow
-        run: devtools flow run --report junit:results.xml test.yaml
+        run: devtools flow run --report console --report junit:results.xml test.yaml
 
       # Upload results.xml as artifact
       - name: Upload JUnit Report
