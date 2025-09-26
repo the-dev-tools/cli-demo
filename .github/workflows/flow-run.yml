@@ -10,6 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write   # ✅ allow junit-report action to create checks
 
     steps:
       - uses: actions/checkout@v4
@@ -29,9 +32,10 @@ jobs:
           name: junit-report
           path: results.xml
 
-      # (Optional) Parse JUnit results so they show in GitHub UI
+      # Publish JUnit results in GitHub UI
       - name: Publish Test Results
         uses: mikepenz/action-junit-report@v4
         if: always()
         with:
           report_paths: results.xml
+          include_passed: true   # ✅ show passed tests in the summary
