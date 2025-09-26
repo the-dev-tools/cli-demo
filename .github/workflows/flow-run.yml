@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Install DevTools CLI
+      - name: Install DevTools
+        run: curl -fsSL https://raw.githubusercontent.com/the-dev-tools/dev-tools/main/apps/cli/install.sh | bash
+
+      # Run a test flow
+      - name: Run a multi-line script
+        run: devtools flow run test.yaml
