@@ -1,0 +1,458 @@
+workspace_name: New Workspace
+run:
+    - flow: https://ecommerce-admin-panel.fly.dev/api/auth/login
+requests:
+    - name: request_0
+      method: POST
+      url: https://ecommerce-admin-panel.fly.dev/api/auth/login
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        content-length: 51
+        content-type: application/json
+        origin: https://ecommerce-admin-panel.fly.dev
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+      body:
+        email: admin@example.com
+        password: admin123
+    - name: request_1
+      method: GET
+      url: https://ecommerce-admin-panel.fly.dev/api/categories
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-type: application/json
+        if-none-match: W/"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w"
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+    - name: request_10
+      method: DELETE
+      url: https://ecommerce-admin-panel.fly.dev/api/products/{{ request_8.response.body.id }}
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-type: application/json
+        origin: https://ecommerce-admin-panel.fly.dev
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+    - name: request_11
+      method: GET
+      url: https://ecommerce-admin-panel.fly.dev/api/products
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-type: application/json
+        if-none-match: W/"1f6-5tv4wqNP6dUwXEvn9hFhr7wYgiA"
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+    - name: request_12
+      method: DELETE
+      url: https://ecommerce-admin-panel.fly.dev/api/tags/{{ request_6.response.body.id }}
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-type: application/json
+        origin: https://ecommerce-admin-panel.fly.dev
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+    - name: request_13
+      method: GET
+      url: https://ecommerce-admin-panel.fly.dev/api/tags
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-type: application/json
+        if-none-match: W/"86-WXMiLzB+hMgdzxVBoFc9Pvp9OBE"
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+    - name: request_14
+      method: DELETE
+      url: https://ecommerce-admin-panel.fly.dev/api/categories/{{ request_4.response.body.id }}
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-type: application/json
+        origin: https://ecommerce-admin-panel.fly.dev
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+    - name: request_15
+      method: GET
+      url: https://ecommerce-admin-panel.fly.dev/api/categories
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-type: application/json
+        if-none-match: W/"8d-YkKC4eioi9dWU32IsTnvwj8nWkE"
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+    - name: request_2
+      method: GET
+      url: https://ecommerce-admin-panel.fly.dev/api/tags
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-type: application/json
+        if-none-match: W/"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w"
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+    - name: request_3
+      method: GET
+      url: https://ecommerce-admin-panel.fly.dev/api/products
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-type: application/json
+        if-none-match: W/"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w"
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+    - name: request_4
+      method: POST
+      url: https://ecommerce-admin-panel.fly.dev/api/categories
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-length: 25
+        content-type: application/json
+        origin: https://ecommerce-admin-panel.fly.dev
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+      body:
+        name: Apple products
+    - name: request_5
+      method: GET
+      url: https://ecommerce-admin-panel.fly.dev/api/categories
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-type: application/json
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+    - name: request_6
+      method: POST
+      url: https://ecommerce-admin-panel.fly.dev/api/tags
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-length: 18
+        content-type: application/json
+        origin: https://ecommerce-admin-panel.fly.dev
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+      body:
+        name: laptops
+    - name: request_7
+      method: GET
+      url: https://ecommerce-admin-panel.fly.dev/api/tags
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-type: application/json
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+    - name: request_8
+      method: POST
+      url: https://ecommerce-admin-panel.fly.dev/api/products
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-length: 213
+        content-type: application/json
+        origin: https://ecommerce-admin-panel.fly.dev
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+      body:
+        category_id: c2b85766-9fb6-4a3b-a032-9628552cbdf2
+        description: a
+        name: macbook pro
+        options:
+            - key: b
+              value: "1"
+            - key: d
+              value: "2"
+        price: 123
+        tags:
+            - ef2574d1-1781-4ca9-bfcd-c571e124be02
+    - name: request_9
+      method: GET
+      url: https://ecommerce-admin-panel.fly.dev/api/products
+      headers:
+        accept: '*/*'
+        accept-encoding: gzip, deflate, br, zstd
+        accept-language: en-US,en;q=0.9
+        authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU5MmFiNzc0LWU3ODMtNDQ5NS05Yjc3LWFkODU2ODlmODRkNyIsImlhdCI6MTc0ODQzODkyMSwiZXhwIjoxNzQ4NTI1MzIxfQ.nRJ8x6ItgC8aOXj8P8jonmjwwOgs2lVTCOd7-KbYlxQ
+        content-type: application/json
+        priority: u=1, i
+        referer: https://ecommerce-admin-panel.fly.dev/
+        sec-ch-ua: '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"'
+        sec-ch-ua-mobile: ?0
+        sec-ch-ua-platform: '"macOS"'
+        sec-fetch-dest: empty
+        sec-fetch-mode: cors
+        sec-fetch-site: same-origin
+        user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36
+flows:
+    - name: https://ecommerce-admin-panel.fly.dev/api/auth/login
+      steps:
+        - request:
+            name: request_0
+            use_request: request_0
+        - request:
+            name: request_13
+            use_request: request_13
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_0
+        - request:
+            name: request_4
+            use_request: request_4
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_0
+                - request_0
+        - request:
+            name: request_6
+            use_request: request_6
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_4
+        - request:
+            name: request_8
+            use_request: request_8
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            body:
+                category_id: '{{ request_4.response.body.id }}'
+                description: a
+                name: macbook pro
+                options:
+                    - key: b
+                      value: "1"
+                    - key: d
+                      value: "2"
+                price: 123
+                tags:
+                    - '{{ request_6.response.body.id }}'
+            depends_on:
+                - request_6
+                - request_6
+        - request:
+            name: request_9
+            use_request: request_9
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_0
+        - request:
+            name: request_10
+            use_request: request_10
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_8
+                - request_8
+                - request_9
+        - request:
+            name: request_11
+            use_request: request_11
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_0
+        - request:
+            name: request_12
+            use_request: request_12
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_6
+                - request_10
+                - request_11
+        - request:
+            name: request_14
+            use_request: request_14
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_4
+                - request_12
+                - request_13
+        - request:
+            name: request_3
+            use_request: request_3
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_10
+        - request:
+            name: request_7
+            use_request: request_7
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_0
+        - request:
+            name: request_15
+            use_request: request_15
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_0
+        - request:
+            name: request_1
+            use_request: request_1
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_14
+        - request:
+            name: request_5
+            use_request: request_5
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_0
+        - request:
+            name: request_2
+            use_request: request_2
+            headers:
+                authorization: Bearer {{ request_0.response.body.token }}
+            depends_on:
+                - request_12
