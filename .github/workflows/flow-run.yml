@@ -23,7 +23,7 @@ jobs:
 
       # Install DevTools CLI
       - name: Install DevTools
-        run: curl -fsSL https://raw.githubusercontent.com/the-dev-tools/dev-tools/main/apps/cli/install.sh | bash
+        run: curl -fsSL https://sh.dev.tools/install.sh | bash
 
       # Run a test flow and export JUnit results
       - name: Run DevTools Flow
