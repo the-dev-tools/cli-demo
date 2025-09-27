@@ -27,19 +27,19 @@ jobs:
 
       # Run a test flow and export JUnit results
       - name: Run DevTools Flow
-        run: devtools flow run --report console --report junit:results.xml test.yaml
+        run: devtools flow run --report console --report junit:test-results.xml exported-dev-tools.yaml
 
       # Upload results.xml as artifact
       - name: Upload JUnit Report
         uses: actions/upload-artifact@v4
         with:
           name: junit-report
-          path: results.xml
+          path: test-results.xml
 
       # Publish JUnit results in GitHub UI
       - name: Publish Test Results
         uses: mikepenz/action-junit-report@v4
         if: always()
         with:
-          report_paths: results.xml
+          report_paths: test-results.xml
           include_passed: true   # ✅ show passed tests in the summary
