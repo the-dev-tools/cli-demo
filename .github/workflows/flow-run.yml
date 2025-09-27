@@ -15,8 +15,8 @@ jobs:
       checks: write   # ✅ allow junit-report action to create checks
 
     env:
-      LOGIN_EMAIL: ${{ secrets.MY_EMAIL }}
-      LOGIN_PASSWORD: ${{ secrets.MY_PASSWORD }}
+      LOGIN_EMAIL: ${{ secrets.LOGIN_EMAIL }}
+      LOGIN_PASSWORD: ${{ secrets.LOGIN_PASSWORD }}
       
     steps:
       - uses: actions/checkout@v4
