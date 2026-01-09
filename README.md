@@ -2,32 +2,63 @@
 
 This project contains API flow tests for an e-commerce admin panel using DevTools CLI.
 
+## 🚀 Quick Start
+
+This flow is **designed for GitHub Actions** and automatically receives credentials from GitHub Secrets. Simply configure your secrets and push - no manual setup required!
+
+## GitHub Actions Integration
+
+**⚠️ IMPORTANT:** Environment variables are automatically injected from GitHub Secrets when running in GitHub Actions.
+
+The flow uses the following environment variables that are **automatically injected from GitHub Secrets**:
+- `LOGIN_EMAIL` - Admin email for authentication
+- `LOGIN_PASSWORD` - Admin password for authentication
+
+No manual configuration is needed when running in GitHub Actions - the secrets are automatically available to the workflow.
+
 ## Setup
 
-1. **Set environment variables**
+### GitHub Secrets Configuration
 
-   The flow requires login credentials to be set as environment variables:
+To run this flow in GitHub Actions, ensure the following secrets are configured in your repository:
 
-   ```bash
-   export LOGIN_EMAIL="admin@example.com"
-   export LOGIN_PASSWORD="admin123"
-   ```
+1. Go to your repository settings
+2. Navigate to **Secrets and variables** → **Actions**
+3. Add the following repository secrets:
+   - `LOGIN_EMAIL` - Your admin email
+   - `LOGIN_PASSWORD` - Your admin password
 
-   Or create a `.env` file in the project root:
+### Running Locally
 
-   ```bash
-   LOGIN_EMAIL=admin@example.com
-   LOGIN_PASSWORD=admin123
-   ```
+If you need to run the flow locally for testing, set the environment variables:
 
-2. **Review the flow configuration**
+```bash
+export LOGIN_EMAIL="admin@example.com"
+export LOGIN_PASSWORD="admin123"
+```
 
-   The flow is defined in `exported-dev-tools.yaml` and includes:
-   - User authentication
-   - CRUD operations for categories, products, and tags
-   - API endpoint testing with assertions
+### Flow Configuration
+
+The flow is defined in `exported-dev-tools.yaml` and includes:
+- User authentication
+- CRUD operations for categories, products, and tags
+- API endpoint testing with assertions
 
 ## Running the Flow
+
+### In GitHub Actions (Recommended)
+
+The flow runs automatically on every push to `main` branch via the workflow defined in `.github/workflows/flow-run.yml`.
+
+The workflow:
+1. Automatically injects `LOGIN_EMAIL` and `LOGIN_PASSWORD` from GitHub Secrets
+2. Installs DevTools CLI
+3. Executes the flow with JUnit reporting
+4. Publishes test results in the GitHub UI
+
+**No manual configuration needed** - just push to the repository and the workflow handles everything!
+
+### Locally
 
 Execute the flow with the following command:
 
@@ -78,7 +109,9 @@ All requests use the authentication token obtained from the login step.
 ERROR: environment variable LOGIN_EMAIL: key not found
 ```
 
-**Solution:** Make sure you've exported the required environment variables before running the flow.
+**In GitHub Actions:** Verify that the secrets `LOGIN_EMAIL` and `LOGIN_PASSWORD` are configured in your repository settings.
+
+**Locally:** Make sure you've exported the required environment variables before running the flow.
 
 ### Connection errors
 
