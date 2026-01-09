@@ -2,11 +2,6 @@
 
 This project contains API flow tests for an e-commerce admin panel using DevTools CLI.
 
-## Prerequisites
-
-- [DevTools CLI](https://github.com/the-dev-tools/dev-tools) installed
-- Access to the e-commerce admin panel API
-
 ## Setup
 
 1. **Set environment variables**
