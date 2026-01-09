@@ -2,190 +2,279 @@ workspace_name: New Workspace
 run:
     - flow: Imported HAR Flow
 requests:
-    - name: DELETE Api Categories C2b85766 9fb6 4a3b A032 9628552cbdf2
-      method: DELETE
-      url: https://ecommerce-admin-panel.fly.dev/api/categories/{{ request_5.response.body.id }}
+    - name: Api Auth Login
+      method: POST
+      url: '{{api}}/api/auth/login'
       headers:
-        authorization: Bearer {{ request_1.response.body.token }}
         content-type: application/json
+      body: '{"email":"{{#env:LOGIN_EMAIL}}","password":"{{#env:LOGIN_PASSWORD}}"}'
+      assertions:
+        - response.status == 200
+    - name: Api Categories
+      method: GET
+      url: '{{api}}/api/categories'
+      headers:
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
+      assertions:
+        - response.status == 200
+    - name: Api Categories C2b85766 9Fb6 4A3b A032 9628552Cbdf2
+      method: DELETE
+      url: '{{api}}/api/categories/{{ http_5.response.body.id }}'
+      headers:
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
       assertions:
         - response.status == 204
-    - name: DELETE Api Products 6d316d59 4cb4 451e B5b1 673ecbdd5609
-      method: DELETE
-      url: https://ecommerce-admin-panel.fly.dev/api/products/{{ request_9.response.body.id }}
+    - name: Api Categories_1
+      method: POST
+      url: '{{api}}/api/categories'
       headers:
-        authorization: Bearer {{ request_1.response.body.token }}
-        content-type: application/json
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
+      body: '{"name":"Apple products"}'
+      assertions:
+        - response.status == 201
+    - name: Api Categories_2
+      method: GET
+      url: '{{api}}/api/categories'
+      headers:
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          description: Imported from HAR
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
+      assertions:
+        - response.status == 200
+    - name: Api Categories_3
+      method: GET
+      url: '{{api}}/api/categories'
+      headers:
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          description: Imported from HAR
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
+      assertions:
+        - response.status == 200
+    - name: Api Products
+      method: GET
+      url: '{{api}}/api/products'
+      headers:
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          description: Imported from HAR
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
+      assertions:
+        - response.status == 200
+    - name: Api Products 6D316d59 4Cb4 451E B5b1 673Ecbdd5609
+      method: DELETE
+      url: '{{api}}/api/products/{{ http_9.response.body.id }}'
+      headers:
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          description: Imported from HAR
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
       assertions:
         - response.status == 204
-    - name: DELETE Api Tags Ef2574d1 1781 4ca9 Bfcd C571e124be02
-      method: DELETE
-      url: https://ecommerce-admin-panel.fly.dev/api/tags/{{ request_7.response.body.id }}
+    - name: Api Products_1
+      method: POST
+      url: '{{api}}/api/products'
       headers:
-        authorization: Bearer {{ request_1.response.body.token }}
-        content-type: application/json
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          description: Imported from HAR
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
+      body: '{"category_id":"{{ http_5.response.body.id }}","description":"a","name":"macbook pro","options":[{"key":"b","value":"1"},{"key":"d","value":"2"}],"price":123,"tags":["{{ http_7.response.body.id }}"]}'
+      assertions:
+        - response.status == 201
+    - name: Api Products_2
+      method: GET
+      url: '{{api}}/api/products'
+      headers:
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          description: Imported from HAR
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
+      assertions:
+        - response.status == 200
+    - name: Api Products_3
+      method: GET
+      url: '{{api}}/api/products'
+      headers:
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          description: Imported from HAR
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
+      assertions:
+        - response.status == 200
+    - name: Api Tags
+      method: GET
+      url: '{{api}}/api/tags'
+      headers:
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          description: Imported from HAR
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
+      assertions:
+        - response.status == 200
+    - name: Api Tags Ef2574d1 1781 4Ca9 Bfcd C571e124be02
+      method: DELETE
+      url: '{{api}}/api/tags/{{ http_7.response.body.id }}'
+      headers:
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          description: Imported from HAR
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
       assertions:
         - response.status == 204
-    - name: GET Api Categories
-      method: GET
-      url: https://ecommerce-admin-panel.fly.dev/api/categories
-      headers:
-        authorization: Bearer {{ request_1.response.body.token }}
-        content-type: application/json
-      assertions:
-        - response.status == 200
-    - name: GET Api Categories_1
-      method: GET
-      url: https://ecommerce-admin-panel.fly.dev/api/categories
-      headers:
-        authorization: Bearer {{ request_1.response.body.token }}
-        content-type: application/json
-      assertions:
-        - response.status == 200
-    - name: GET Api Products
-      method: GET
-      url: https://ecommerce-admin-panel.fly.dev/api/products
-      headers:
-        authorization: Bearer {{ request_1.response.body.token }}
-        content-type: application/json
-      assertions:
-        - response.status == 200
-    - name: GET Api Products_1
-      method: GET
-      url: https://ecommerce-admin-panel.fly.dev/api/products
-      headers:
-        authorization: Bearer {{ request_1.response.body.token }}
-        content-type: application/json
-      assertions:
-        - response.status == 200
-    - name: GET Api Tags
-      method: GET
-      url: https://ecommerce-admin-panel.fly.dev/api/tags
-      headers:
-        authorization: Bearer {{ request_1.response.body.token }}
-        content-type: application/json
-      assertions:
-        - response.status == 200
-    - name: GET Api Tags_1
-      method: GET
-      url: https://ecommerce-admin-panel.fly.dev/api/tags
-      headers:
-        authorization: Bearer {{ request_1.response.body.token }}
-        content-type: application/json
-      assertions:
-        - response.status == 200
-    - name: POST Api Auth Login
+    - name: Api Tags_1
       method: POST
-      url: https://ecommerce-admin-panel.fly.dev/api/auth/login
+      url: '{{api}}/api/tags'
       headers:
-        content-type: application/json
-      body:
-        email: "{{ #env:LOGIN_EMAIL }}"
-        password: "{{ #env:LOGIN_PASSWORD }}"
-      assertions:
-        - response.status == 200
-    - name: POST Api Categories
-      method: POST
-      url: https://ecommerce-admin-panel.fly.dev/api/categories
-      headers:
-        authorization: Bearer {{ request_1.response.body.token }}
-        content-type: application/json
-      body:
-        json:
-            name: Apple products
-        type: json
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          description: Imported from HAR
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
+      body: '{"name":"laptops"}'
       assertions:
         - response.status == 201
-    - name: POST Api Products
-      method: POST
-      url: https://ecommerce-admin-panel.fly.dev/api/products
+    - name: Api Tags_2
+      method: GET
+      url: '{{api}}/api/tags'
       headers:
-        authorization: Bearer {{ request_1.response.body.token }}
-        content-type: application/json
-      body:
-        json:
-            category_id: '{{ request_5.response.body.id }}'
-            description: a
-            name: macbook pro
-            options:
-                - key: b
-                  value: "1"
-                - key: d
-                  value: "2"
-            price: 123
-            tags:
-                - '{{ request_7.response.body.id }}'
-        type: json
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          description: Imported from HAR
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
       assertions:
-        - response.status == 201
-    - name: POST Api Tags
-      method: POST
-      url: https://ecommerce-admin-panel.fly.dev/api/tags
+        - response.status == 200
+    - name: Api Tags_3
+      method: GET
+      url: '{{api}}/api/tags'
       headers:
-        authorization: Bearer {{ request_1.response.body.token }}
-        content-type: application/json
-      body:
-        json:
-            name: laptops
-        type: json
+        - name: authorization
+          value: Bearer {{ http_1.response.body.token }}
+          description: Imported from HAR
+          enabled: true
+        - name: content-type
+          value: application/json
+          enabled: true
       assertions:
-        - response.status == 201
+        - response.status == 200
 flows:
     - name: Imported HAR Flow
       steps:
+        - manual_start:
+            name: Start
         - request:
-            name: request_1
-            use_request: POST Api Auth Login
+            name: http_1
+            depends_on: Start
+            use_request: Api Auth Login
         - request:
-            name: request_10
-            use_request: GET Api Products
+            name: http_10
+            depends_on: http_1
+            use_request: Api Products_2
         - request:
-            depends_on:
-                - request_1
-            name: request_12
-            use_request: GET Api Products_1
+            name: http_12
+            depends_on: http_1
+            use_request: Api Products_3
         - request:
-            depends_on:
-                - request_1
-            name: request_14
-            use_request: GET Api Tags_1
+            name: http_14
+            depends_on: http_1
+            use_request: Api Tags_3
         - request:
-            depends_on:
-                - request_1
-            name: request_16
-            use_request: GET Api Categories_1
+            name: http_16
+            depends_on: http_1
+            use_request: Api Categories_3
         - request:
-            depends_on:
-                - request_1
-            name: request_5
-            use_request: POST Api Categories
+            name: http_2
+            depends_on: http_1
+            use_request: Api Categories
         - request:
-            depends_on:
-                - request_1
-            name: request_6
-            use_request: GET Api Categories
+            name: http_5
+            depends_on: http_1
+            use_request: Api Categories_1
         - request:
-            depends_on:
-                - request_1
-            name: request_8
-            use_request: GET Api Tags
+            name: http_6
+            depends_on: http_1
+            use_request: Api Categories_2
         - request:
-            depends_on:
-                - request_5
-            name: request_7
-            use_request: POST Api Tags
+            name: http_8
+            depends_on: http_1
+            use_request: Api Tags_2
         - request:
-            name: request_9
-            use_request: POST Api Products
+            name: http_3
+            depends_on: http_2
+            use_request: Api Tags
         - request:
-            name: request_11
-            use_request: DELETE Api Products 6d316d59 4cb4 451e B5b1 673ecbdd5609
+            name: http_7
+            depends_on: http_5
+            use_request: Api Tags_1
         - request:
-            name: request_13
-            use_request: DELETE Api Tags Ef2574d1 1781 4ca9 Bfcd C571e124be02
+            name: http_4
+            depends_on: http_3
+            use_request: Api Products
         - request:
-            name: request_15
-            use_request: DELETE Api Categories C2b85766 9fb6 4a3b A032 9628552cbdf2
+            name: http_9
+            depends_on: http_7
+            use_request: Api Products_1
+        - request:
+            name: http_11
+            depends_on: http_9
+            use_request: Api Products 6D316d59 4Cb4 451E B5b1 673Ecbdd5609
+        - request:
+            name: http_13
+            depends_on: http_11
+            use_request: Api Tags Ef2574d1 1781 4Ca9 Bfcd C571e124be02
+        - request:
+            name: http_15
+            depends_on: http_13
+            use_request: Api Categories C2b85766 9Fb6 4A3b A032 9628552Cbdf2
 environments:
     - name: default
-      variables: {}
+      variables:
+        api: https://ecommerce-admin-panel.fly.dev
