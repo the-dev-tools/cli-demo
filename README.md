@@ -30,11 +30,42 @@ To run this flow in GitHub Actions, ensure the following secrets are configured 
 
 ### Running Locally
 
-If you need to run the flow locally for testing, set the environment variables:
+If you need to run the flow locally for testing, follow these steps:
+
+#### Prerequisites
+
+Install DevTools CLI:
 
 ```bash
+# Install DevTools CLI
+curl -fsSL https://sh.dev.tools/install.sh | bash
+
+# Verify installation
+devtools --version
+
+# View available commands
+devtools --help
+```
+
+#### Step-by-Step Local Execution
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/the-dev-tools/cli-demo.git
+cd cli-demo
+
+# 2. Set environment variables (required for authentication)
 export LOGIN_EMAIL="admin@example.com"
 export LOGIN_PASSWORD="admin123"
+
+# 3. Run the flow
+devtools flow run exported-dev-tools.yaml
+
+# Optional: Run with JUnit report output
+devtools flow run --report console --report junit:test-results.xml exported-dev-tools.yaml
+
+# Optional: Run with quiet mode (minimal output for CI/CD)
+devtools flow run --quiet exported-dev-tools.yaml
 ```
 
 ### Flow Configuration
@@ -50,21 +81,17 @@ The flow is defined in `exported-dev-tools.yaml` and includes:
 
 The flow runs automatically on every push to `main` branch via the workflow defined in `.github/workflows/flow-run.yml`.
 
-The workflow:
-1. Automatically injects `LOGIN_EMAIL` and `LOGIN_PASSWORD` from GitHub Secrets
-2. Installs DevTools CLI
-3. Executes the flow with JUnit reporting
-4. Publishes test results in the GitHub UI
+The workflow automatically:
+1. Checks out the repository
+2. Injects `LOGIN_EMAIL` and `LOGIN_PASSWORD` from GitHub Secrets as environment variables
+3. Installs DevTools CLI: `curl -fsSL https://sh.dev.tools/install.sh | bash`
+4. Executes the flow with reporting: `devtools flow run --report console --report junit:test-results.xml exported-dev-tools.yaml`
+5. Uploads the JUnit test results as artifacts
+6. Publishes test results in the GitHub UI
 
-**No manual configuration needed** - just push to the repository and the workflow handles everything!
+**No manual configuration needed** - just configure your GitHub Secrets and push to the repository!
 
-### Locally
-
-Execute the flow with the following command:
-
-```bash
-devtools flow run exported-dev-tools.yaml
-```
+For local execution instructions, see the [Running Locally](#running-locally) section above.
 
 ### Expected Output
 
